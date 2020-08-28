@@ -1,8 +1,5 @@
-//Copy gay
-
-
 //The code isn't that hard
-//The code:
+//The code:                       (Oh yes it's easy)
 
 
 player = {
