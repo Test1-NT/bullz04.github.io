@@ -1,4 +1,4 @@
-//
+//Copy gay
 
 
 //The code isn't that hard
