@@ -27,7 +27,7 @@ player = {
     },
     upgrades : {
         isBought : [new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0")],
-        initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("1e40"), new Decimal("2e52"), new Decimal("2^1024")],
+        initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")],
         text : ["", "", "", "", ""],
     }
 }
@@ -180,7 +180,7 @@ function hardReset() {
         },
         upgrades : {
             isBought : [new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0")],
-            initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("1e40"), new Decimal("2e52"), new Decimal("2^1024")],
+            initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")],
             text : ["", "", "", "", ""],
         }
     }
@@ -276,7 +276,7 @@ updateText();
 tab("production");
 subTab1("subPrestige1");
 subTab2("subSettings1");
-player.upgrades.initialCost = [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e67"), new Decimal("2^8192")];
+player.upgrades.initialCost = [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")];
 player.stars.initialCost = new Decimal("1e4");
 player.stars.costScaling = new Decimal("1e15")
 console.log("Put () after function");
