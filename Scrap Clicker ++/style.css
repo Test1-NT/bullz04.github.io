@@ -1,0 +1,80 @@
+body {
+    color: #94ff88;
+    background : #0a7900;
+    font-size: 20px;
+}
+
+button {
+    font-size: 15px;
+}
+
+.bigger1 {
+    color : #59d8ff;
+    border : none;
+    font-size : 32px;
+}
+
+.bigger2 {
+    color : #59d8ff;
+    border : none;
+    font-size : 25px;
+}
+
+.biggerGold1 {
+    color : #ffee00;
+    border : none;
+    font-size : 32px;
+}
+
+.biggerGold2 {
+    color : #ffee00;
+    border : none;
+    font-size : 25px;
+}
+
+/*Text Barrier*/
+
+
+.buttonTab {
+    font-size : 32px;
+    border-radius: 10px;
+    color : #000000;
+    background-color : #ffffff;
+    transition-duration : 0.2s;
+}
+
+.buttonTab1 {
+    color : #94ff88;
+    background-color : #13b900;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 255);
+}
+
+.buttonTab1:hover {
+    background-color : #94ff88;
+    color : #13b900;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 0);
+}
+
+.buttonTab2 {
+    color : #eeff00;
+    background-color : #98a300;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 255);
+}
+
+.buttonTab2:hover {
+    background-color : #eeff00;
+    color : #98a300;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 0);
+}
+
+.buttonTab3 {
+    color : #cccccc;
+    background-color : #5f5f5f;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 255);
+}
+
+.buttonTab3:hover {
+    background-color : #cccccc;
+    color : #5f5f5f;
+    text-shadow : 0px 0px 5px rgba(0, 0, 0, 0);
+}
