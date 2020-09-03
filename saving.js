@@ -1,3 +1,5 @@
+//taken from SuperSpruce
+
 function objectToDecimal(object) {
     for (let i in object) {
         if (typeof(object[i]) == "string" && !isNaN(new Decimal(object[i]).mag) && !(new Decimal(object[i]).sign == 0 && object[i] != "0")) {
@@ -60,7 +62,9 @@ function exportSave() {
   return btoa(JSON.stringify(player));
 }
 
-function importSave(text) {1
+//return btoa(JSON.stringify(player));
+
+function importSave(text) {
   savegame = JSON.parse(atob(text));
   objectToDecimal(savegame);
   merge(player, savegame);
