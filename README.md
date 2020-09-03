@@ -1,2 +1,2 @@
 # scrap-clicker-mod
- Modded Scrap Clicker
+ Don't modify anything or the game wouldn't run properly
