@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Scrap Clicker (Modified)</title>
+    <link rel="stylesheet" type="text/css" href="upgrades.css" />
+    <title>Scrap Clicker++</title>
 </head>
 <body>
     <button id="productionTab" class="buttonTab buttonTab1" onclick="tab('production')">Production</button>
@@ -19,12 +20,12 @@
 
     <div id="production">
         <div>You have <span id="ScrapAmount" class="bigger1">0</span> Scraps (+<span id="ScrapsPerSecond" class="bigger2">0</span>/s)</div>
-        <div>You have <span id="FactoryAmount" class="bigger2">0</span> factories</div>
+        <div>You have <span id="FactoryAmount" class="bigger2">0</span> factories.</div>
         <button onclick="clickScrap()" id="ScrapsPerClick">Gain<br>1 Scraps</button>
         <br>
-        <button onclick="buyScrapBoost('singles')" id="BuyScrapBoostDisplay">Boost your Scrap income by 3x<br>100 Scraps</button><button onclick="buyScrapBoost('max')">Buy<br>max</button>
+        <button onclick="buyScrapBoost('singles')" id="BuyScrapBoostDisplay">Boost your Scrap gain by 3x<br>100 Scraps</button><button onclick="buyScrapBoost('max')">Buy<br>Max</button>
         <br>
-        <button onclick="buyFactory('singles')" id="BuyFactoryDisplay">Buy Factory<br>10 Scraps</button><button onclick="buyFactory('max')">Buy<br>max</button>
+        <button onclick="buyFactory('singles')" id="BuyFactoryDisplay">Buy Factory<br>10 Scraps</button><button onclick="buyFactory('max')">Buy<br>Max</button>
         
     </div>
 
@@ -32,6 +33,8 @@
         <div>You have <span id="GoldenScrapDisplay" class="biggerGold1"></span> Golden Scraps, boosting your Scrap gain by +<span id="GoldenScrapDisplay2" class="biggerGold2"></span>%.</div><br>
         <button onclick="subTab1('subPrestige1')">Golden Scraps</button>
         <button onclick="subTab1('subPrestige2')">Upgrades</button>
+        <button onclick="subTab1('subPrestige3')">Stars</button>
+        <button onclick="subTab1('subPrestige4')">Automation</button>
         <br>
         <br>
 
@@ -41,15 +44,53 @@
         </div>
 
         <div id="subPrestige2">
-            <button class="buttonUpgrade">GET STICK BUGGED LOL</button>
+            You may hate these positions.<br>
+            Cause I'm good on positioning >:D.<br>
+            <button id="GSUpgrade1" class="buttonUpgrade upgradeIsNotBought" onclick="buyUpgrade(0)">Factories boost your scraps by an additive 5% per factory<br>Currently: <span id="GoldenScrapUpgradeEffect1"></span> Scraps<br>Cost:<span id="GoldenScrapUpgrade1.2"></span><span id="GoldenScrapUpgrade1.1"></span></button>
+            <button id="GSUpgrade2" class="buttonUpgrade upgradeIsNotBought" onclick="buyUpgrade(1)">Same as before, but they also multiply Golden Scraps<br>Currently: <span id="GoldenScrapUpgradeEffect2.1"></span> GS and <span id="GoldenScrapUpgradeEffect2.2"></span> Scraps<br>Cost:<span id="GoldenScrapUpgrade2.2"></span><span id="GoldenScrapUpgrade2.1"></span></button>
+            <button id="GSUpgrade3" class="buttonUpgrade upgradeIsNotBought" onclick="buyUpgrade(2)">Scrap multiplier based on time spent in this prestige<br>Currently: <span id="GoldenScrapUpgradeEffect3"></span> Scraps<br><br><br>Cost:<span id="GoldenScrapUpgrade3.2"></span><span id="GoldenScrapUpgrade3.1"></span></button>
+            <button id="GSUpgrade4" class="buttonUpgrade upgradeIsNotBought" onclick="buyUpgrade(3)">Scrap multiplier based on your Scraps (Logarithmic scale, Ew).<br>Currently: <span id="GoldenScrapUpgradeEffect4"></span> Scraps<br>Cost:<span id="GoldenScrapUpgrade4.2"></span><span id="GoldenScrapUpgrade4.1"></span></button>
+            <button id="GSUpgrade5" class="buttonUpgrade upgradeIsNotBought" onclick="buyUpgrade(4)">Unlock Bricks (Coming Soon...)<br><br><br><br>Cost:<span id="GoldenScrapUpgrade5.2"></span><span id="GoldenScrapUpgrade5.1"></span></button>
+        </div>
+
+        <div id="subPrestige3">
+            <div>You have <span class="biggerGold1" id="StarsDisplay"></span> Stars.<br>Boosting your scrap gain by <span class="biggerGold2" id="StarEffect"></span>.</div>
+            <button onclick="buyStars('singles')">Buy a star<br>for <span id="BuyStarsDisplay"></span> Golden Scraps.</button><button onclick="buyStars('max')">Buy<br>Max</button>
+        </div>
+
+
+        <div id="subPrestige4">
+            Coming Soon!
         </div>
     </div>
 
     <div id="settings">
-        <button onclick="save()">Save</button>
-        <button onclick="confirmHardReset()">Hard Reset</button>
-        <div>If you are looking for the original one, <a href="https://play.google.com/store/apps/details?id=example.de.schrotttonne&hl=en">here.</a></div>
-        <div><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Walkthrough Video</a></div><div><a href="https://www.youtube.com/channel/UC4D_JX8Z2HboHvlcKjSqOYA?view_as=subscriber">My YouTube Channel</a></div>
+        <button onclick="subTab2('subSettings1')">Save settings</button>
+        <button onclick="subTab2('subSettings2')">About</button>
+        <button onclick="subTab2('subSettings3')">Changelog & Updates</button>
+        <br>
+        <br>
+
+        <div id="subSettings1">
+            <button onclick="save()">Save</button>
+            <button onclick="confirmHardReset()">Hard Reset</button><br>
+            <button onclick="document.write(exportSave())">Export</button>
+            <button onclick="importSave(prompt('Insert your save.'))">Import</button>
+        </div>
+        
+        <div id="subSettings2">
+            <div>If you are looking for the original one, <a href="https://play.google.com/store/apps/details?id=example.de.schrotttonne&hl=en">here.</a></div>
+            <div><a href="https://youtu.be/RosWjxvr8-Y">Walkthrough Video</a></div><div><a href="https://www.youtube.com/channel/UC4D_JX8Z2HboHvlcKjSqOYA?view_as=subscriber">My YouTube Channel</a></div>
+            <div><a href="https://github.com/Patashu/break_eternity.js/tree/master">Break Eternity</a> by Patashu</div>
+        </div>
+
+        <div id="subSettings3">
+            <center><h2>Changelog</h2></center>
+            <div>08-28-2020 v0.0: Created the game.</div>
+            <div>09-03-2020 v0.0.1: Improved the saving system, Added some GS upgrades and stars.</div>
+        </div>
+        
+        
     </div>
 
 
