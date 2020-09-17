@@ -27,7 +27,7 @@ player = {
     },
     upgrades : {
         isBought : [new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0")],
-        initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")],
+        initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e65"), new Decimal("2^8192")],
         text : ["", "", "", "", ""],
     }
 }
@@ -68,13 +68,13 @@ function buyUpgrade(i) {
 
 function clickScrap() {
     player.scrap = player.scrap.add(
-        Decimal.round(player.scrapsPerClick).times(Decimal.pow(player.scrapBoostMultiplier, player.scrapBoostBought)).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 1.2).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))
+        Decimal.round(player.scrapsPerClick).times(Decimal.pow(player.scrapBoostMultiplier, player.scrapBoostBought)).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 5).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))
     )
 };
 
 function idleScrap() {
     player.scrap = player.scrap.add(
-        (  (Decimal.round(player.scrapsPerSecond).plus(player.factoryBought).plus(player.extraFactories)).times(Decimal.pow(player.scrapBoostMultiplier, player.scrapBoostBought)).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 1.2).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))  ).div(20)
+        (  (Decimal.round(player.scrapsPerSecond).plus(player.factoryBought).plus(player.extraFactories)).times(Decimal.pow(player.scrapBoostMultiplier, player.scrapBoostBought)).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 5).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))  ).div(20)
     )
     player.timeSpentInThisPrestige = player.timeSpentInThisPrestige.add(
         new Decimal(1).div(20)
@@ -180,7 +180,7 @@ function hardReset() {
         },
         upgrades : {
             isBought : [new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0"), new Decimal("0")],
-            initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")],
+            initialCost : [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e65"), new Decimal("2^8192")],
             text : ["", "", "", "", ""],
         }
     }
@@ -211,7 +211,7 @@ function updateText() {
     document.getElementById("GoldenScrapUpgradeEffect1").innerHTML = format(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)) + "x"
     document.getElementById("GoldenScrapUpgradeEffect2.1").innerHTML = format((player.factoryBought.plus(player.extraFactories)).times(player.upgrades.isBought[1]).plus(1)) + "x"
     document.getElementById("GoldenScrapUpgradeEffect2.2").innerHTML = format(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)) + "x"
-    document.getElementById("GoldenScrapUpgradeEffect3").innerHTML = format((Decimal.pow(player.timeSpentInThisPrestige, 1.2).times(player.upgrades.isBought[2])).plus(1)) + "x"
+    document.getElementById("GoldenScrapUpgradeEffect3").innerHTML = format((Decimal.pow(player.timeSpentInThisPrestige, 5).times(player.upgrades.isBought[2])).plus(1)) + "x"
     document.getElementById("GoldenScrapUpgradeEffect4").innerHTML = format(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))) + "x"
 
 
@@ -224,8 +224,8 @@ function updateText() {
 
     document.getElementById("FactoryAmount").innerHTML = format(Decimal.round(player.factoryBought))
     document.getElementById("ScrapAmount").innerHTML = format(Decimal.round(player.scrap))
-    document.getElementById("ScrapsPerClick").innerHTML = "Gain<br>" + format(Decimal.round(player.scrapsPerClick.times(Decimal.pow(player.scrapBoostMultiplier, Decimal.round(player.scrapBoostBought))).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 1.2).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought)))) + " Scraps"
-    document.getElementById("ScrapsPerSecond").innerHTML = format(Decimal.round(player.scrapsPerSecond.plus(player.factoryBought).times(Decimal.pow(player.scrapBoostMultiplier, Decimal.round(player.scrapBoostBought))).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 1.2).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))))
+    document.getElementById("ScrapsPerClick").innerHTML = "Gain<br>" + format(Decimal.round(player.scrapsPerClick.times(Decimal.pow(player.scrapBoostMultiplier, Decimal.round(player.scrapBoostBought))).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 5).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought)))) + " Scraps"
+    document.getElementById("ScrapsPerSecond").innerHTML = format(Decimal.round(player.scrapsPerSecond.plus(player.factoryBought).times(Decimal.pow(player.scrapBoostMultiplier, Decimal.round(player.scrapBoostBought))).times(player.goldenScrap.div(100).plus(1)).times(Decimal.pow(Decimal.log(player.scrap.plus(1.00001), 1.00001), number_10.times(player.upgrades.isBought[3]))).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[0])).plus(1)).times(((player.factoryBought.plus(player.extraFactories)).times(0.05).times(player.upgrades.isBought[1])).plus(1)).times((Decimal.pow(player.timeSpentInThisPrestige, 5).times(player.upgrades.isBought[2])).plus(1)).times(Decimal.pow(player.stars.effect, player.stars.bought))))
     document.getElementById("BuyFactoryDisplay").innerHTML = "Buy Factory<br>" + format(Decimal.round(Decimal.pow(1.01, player.factoryBought).times(player.factoryCost))) + " Scraps"
     document.getElementById("BuyScrapBoostDisplay").innerHTML = "Boost your Scrap income by " + format(Decimal.round(player.scrapBoostMultiplier)) + "x<br>" + format(Decimal.round(Decimal.pow(4, player.scrapBoostBought).times(player.scrapBoostCost))) + " Scraps"
     document.getElementById("GoldenScrapDisplay").innerHTML = format(Decimal.round(player.goldenScrap))
@@ -276,7 +276,7 @@ updateText();
 tab("production");
 subTab1("subPrestige1");
 subTab2("subSettings1");
-player.upgrades.initialCost = [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e63"), new Decimal("2^8192")];
+player.upgrades.initialCost = [new Decimal("2e3"), new Decimal("1e17"), new Decimal("4e53"), new Decimal("2e65"), new Decimal("2^8192")];
 player.stars.initialCost = new Decimal("1e4");
 player.stars.costScaling = new Decimal("1e15")
 console.log("Put () after function");
