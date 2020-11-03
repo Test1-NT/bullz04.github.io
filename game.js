@@ -133,7 +133,7 @@ function buyStars(amount) {
 }
 
 function goldenScrapPrestige() {
-    let pendingGoldenScrap = Decimal.round(Decimal.pow(player.scrap, 0.15)).times((player.factoryBought.plus(player.extraFactories)).times(player.upgrades.isBought[1]).plus(1))
+    let pendingGoldenScrap = Decimal.floor(Decimal.pow(player.scrap, 0.15).times((player.factoryBought.plus(player.extraFactories)).times(player.upgrades.isBought[1]).plus(1)))
     if (pendingGoldenScrap.gte(Decimal.round(200))) {
         player.goldenScrap = player.goldenScrap.add(pendingGoldenScrap);
         player.scrap = new Decimal("0")
