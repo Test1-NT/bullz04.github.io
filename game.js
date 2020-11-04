@@ -230,7 +230,7 @@ function updateText() {
     document.getElementById("BuyScrapBoostDisplay").innerHTML = "Boost your Scrap income by " + format(Decimal.round(player.scrapBoostMultiplier)) + "x<br>" + format(Decimal.round(Decimal.pow(4, player.scrapBoostBought).times(player.scrapBoostCost))) + " Scraps"
     document.getElementById("GoldenScrapDisplay").innerHTML = format(Decimal.round(player.goldenScrap))
     document.getElementById("GoldenScrapDisplay2").innerHTML = format(Decimal.round(player.goldenScrap)) 
-    document.getElementById("PendingGoldenScrapDisplay").innerHTML = format(Decimal.round(Decimal.pow(player.scrap, 0.15)).times((player.factoryBought.plus(player.extraFactories)).times(player.upgrades.isBought[1]).plus(1)))
+    document.getElementById("PendingGoldenScrapDisplay").innerHTML = format(Decimal.floor(Decimal.pow(player.scrap, 0.15).times((player.factoryBought.plus(player.extraFactories)).times(player.upgrades.isBought[1]).plus(1))))
 };
 
 function updateStyle() {
