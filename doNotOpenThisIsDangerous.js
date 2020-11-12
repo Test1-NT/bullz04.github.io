@@ -1,10 +1,8 @@
 
 function theScrollOfTruth() {
 console.log(
-    "Speed merging is disallowed.<br>I want to cap merge boosts."
+    "Speed merging is disallowed. I want to cap merge boosts."
 )
-
-
 }
 
 function bullz_sucks() {
