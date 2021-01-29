@@ -90,7 +90,7 @@ function achievementCheck() {
         giveAchievement(14)
     }
 
-    if (player.scrapClicks.gte(200)) {
+    if (player.scrapClicks.gte(500)) {
         giveAchievement(15)//Achievement 16-1
     }
 
@@ -204,7 +204,7 @@ function changeAchThings(x) {
             break;
         case 16:
             achTitle = "You love to grind, don't you?";
-            achDesc = "Have over " + format(200) + " Scrap Clicks. Reward: Scrap gain is boosted by your manual scrap clicks";
+            achDesc = "Have over " + format(500) + " Scrap Clicks. Reward: Scrap gain is boosted by your manual scrap clicks";
             break;
         case 17:
             achTitle = "Prestigious";
