@@ -162,6 +162,7 @@
                     <button class="brickButton" onclick="maxAllRBUs()">Max All RBUs</button>
                     <br>
                     <br>
+                    <div style="font-size: 25px;"><strong>Normal Brick Upgrades (NBU)</strong></div><br>
                     <table>
                         <tr>
                             <td><button id="RepeatableBrickUpgrade1" class="repeatableBrickUpgrade repeatableBrickUpgradeIsAffordable" onclick="buyRepeatableBrickUpgrades('singles', 0)">You gain <span id="RepeatableBrickUpgradeEffect1.2"></span>x more wrenches<br>Cost: <span id="RepeatableBrickUpgradeCost1"></span> Bricks<br>Level: <span id="RepeatableBrickUpgradeLevel1"></span><br>Currently: <span id="RepeatableBrickUpgradeEffect1.1"></span>x</button></td>
@@ -312,14 +313,14 @@
                     Autoclicker Lvl. <span id="AutomatorLevel1">99999</span><br>
                     Autoclicks scrap gain button<br>
                     Speed: <span id="AutomatorSpeed1">1.00</span>x<br>
-                    <button onclick="upgradeAutomator('singles', 0)">Upgrade Autoclicker<br><span id="AutomatorCostText1">Cost: <span id="AutomatorCost1">1 quadrillion</span> GS </span><span id="AutomatorMaxedOut"></span></button><br>
+                    <button class="prestigeButton" onclick="upgradeAutomator('singles', 0)">Upgrade Autoclicker<br><span id="AutomatorCostText1">Cost: <span id="AutomatorCost1">1 quadrillion</span> GS </span><span id="AutomatorMaxedOut"></span></button><br>
                     Is Active: <input id="AutomatorActivation1" type="checkbox" class="checkbox" onclick="player.automator[0].isActive = document.getElementById('AutomatorActivation1').checked">
                 </div>
                 <div class="automator-container">
                     Automultiplicator Lvl. <span id="AutomatorLevel2"></span> / 10<br>
                     Buy maxes multiplicators automatically<br>
                     Speed: <span id="AutomatorSpeed2">1.00</span>x<br>
-                    <button onclick="upgradeAutomator('singles', 1)">Upgrade Autoclicker<br><span id="AutomatorCostText2">Cost: <span id="AutomatorCost2">1 quadrillion</span> GS </span><span id="AutomatorMaxedOut"></span></button><br>
+                    <button class="prestigeButton" onclick="upgradeAutomator('singles', 1)">Upgrade Autoclicker<br><span id="AutomatorCostText2">Cost: <span id="AutomatorCost2">1 quadrillion</span> GS </span><span id="AutomatorMaxedOut"></span></button><br>
                     Is Active: <input id="AutomatorActivation2" type="checkbox" class="checkbox" onclick="player.automator[1].isActive = document.getElementById('AutomatorActivation2').checked">
                 </div>
             </div>
@@ -406,7 +407,8 @@
                         Added Magnets, Bricks and Decayverse.<br>
                         Added some upgrades.<br>
                         Added credits.<br>
-                        Added notations.<br><br>
+                        Added notations.<br>
+                        Added news ticker.<br><br>
                         <strong style="font-size: 25px;">Changes</strong><br>
                         Exported save now appears on textarea instead of appearing on entire game screen.<br>
                         Nerfed 3rd Golden Scrap upgrade effect.<br>
